@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 Main();
 
@@ -11,10 +12,7 @@ void Main()
     MooseSays("H I, I'M E N T H U S I A S T I C !");
     MooseSays("I really am enthusiastic");
 
-    MooseQuestion("Is Canada real?", "Really? It seems very unlikely.", "I  K N E W  I T !!!");
-    MooseQuestion("Are birds real?", "Wake up. You have been brainwashed.", "Correct. Today's 'birds' are surveillance drones.");
-    MooseQuestion("Is this a question?", "Right. Kind of meta, but I am a moose so.", "Well...");
-    MooseQuestion("Is this really the end?", "If you insist.", "Oh?");
+    MooseAsks("Ask me a yes or no question!");
 };
 
 void MooseSays(string message)
@@ -49,33 +47,46 @@ void MooseSays(string message)
     ");
 };
 
-void MooseQuestion(string Question, string Yes, string No)
-{
-    bool isTrue = MooseAsks(Question);
-    if (isTrue)
-    {
-        MooseSays(Yes);
-    }
-    else
-    {
-        MooseSays(No);
-    }
-};
-
 bool MooseAsks(string question)
 {
-    Console.Write($"{question} (Y/N): ");
+    Console.Write($"{question} (Hit enter to exit): ");
     string answer = Console.ReadLine().ToLower();
+    Random NumberGenerator = new Random();
 
-    while (answer != "y" && answer != "n")
+    List<string> Responses = new List<string>() {
+        "As I see it, yes.",
+        "Ask again later.",
+        "Better not tell you now.",
+        "Cannot predict now.",
+        "Concentrate and ask again.",
+        "Don’t count on it.",
+        "It is certain.",
+        "It is decidedly so.",
+        "Most likely.",
+        "My reply is no.",
+        "My sources say no.",
+        "Outlook not so good.",
+        "Outlook good.",
+        "Reply hazy, try again.",
+        "Signs point to yes.",
+        "Very doubtful.",
+        "Without a doubt.",
+        "Yes.",
+        "Yes – definitely.",
+        "You may rely on it."
+    };
+
+    while (answer != "")
     {
-        Console.Write($"{question} (Y/N): ");
+        int index = NumberGenerator.Next(0, 20);
+        MooseSays(Responses[index]);
+        Console.Write($"{question} (Hit enter to exit): ");
         answer = Console.ReadLine().ToLower();
     }
 
-    if (answer == "y")
+    if (answer == "")
     {
-        return true;
+        return false;
     }
     else
     {
