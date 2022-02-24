@@ -11,10 +11,10 @@ void Main()
     MooseSays("H I, I'M E N T H U S I A S T I C !");
     MooseSays("I really am enthusiastic");
 
-    CanadaQuestion();
-    BirdQuestion();
-    QuestionQuestion();
-    TheFinalQuestion();
+    MooseQuestion("Is Canada real?", "Really? It seems very unlikely.", "I  K N E W  I T !!!");
+    MooseQuestion("Are birds real?", "Wake up. You have been brainwashed.", "Correct. Today's 'birds' are surveillance drones.");
+    MooseQuestion("Is this a question?", "Right. Kind of meta, but I am a moose so.", "Well...");
+    MooseQuestion("Is this really the end?", "If you insist.", "Oh?");
 };
 
 void MooseSays(string message)
@@ -49,51 +49,16 @@ void MooseSays(string message)
     ");
 };
 
-void CanadaQuestion()
+void MooseQuestion(string Question, string Yes, string No)
 {
-    bool isTrue = MooseAsks("Is Canada real?");
+    bool isTrue = MooseAsks(Question);
     if (isTrue)
     {
-        MooseSays("Really? It seems very unlikely.");
+        MooseSays(Yes);
     }
     else
     {
-        MooseSays("I  K N E W  I T !!!");
-    }
-};
-void BirdQuestion()
-{
-    bool isTrue = MooseAsks("Are birds real?");
-    if (isTrue)
-    {
-        MooseSays("Wake up. You have been brainwashed.");
-    } 
-    else 
-    {
-        MooseSays("Correct. Today's 'birds' are surveillance drones.");
-    }
-};
-void QuestionQuestion()
-{
-    bool isTrue = MooseAsks("Is this a question?");
-    if (isTrue)
-    {
-        MooseSays("Right. Kind of meta, but I am a moose so.");
-    } 
-    else 
-    {
-        MooseSays("Well...");
-    }
-};
-void TheFinalQuestion()
-{
-    bool isTrue = MooseAsks("Is this really the end?");
-    if (isTrue)
-    {
-        MooseSays("If you insist.");
-    } else 
-    {
-        MooseSays("Oh?");
+        MooseSays(No);
     }
 };
 
